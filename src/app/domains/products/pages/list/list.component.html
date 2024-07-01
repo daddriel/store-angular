@@ -1,15 +1,12 @@
 <div class="container mx-auto">
-  <app-header />
-<div class="grid grid-cols-4 gap-8 mt-8">
+  <app-header [cart]="cart()" />
+  <p>{{cart().length}}</p>
+  <div class="grid grid-cols-4 gap-8 mt-8">
 
-  @for (product of products(); track product;let i = $index) {
-    <app-product
-    [product]="product"
-    (addToCart)="fromChild($event)"/>
-  }
+    @for (product of products(); track product;let i = $index) {
+      <!-- $event variable -> contenido del emit -->
+    <app-product [product]="product" (onAddCart)="addToCart($event)" />
+    }
 
+  </div>
 </div>
-</div>
-
-
-
