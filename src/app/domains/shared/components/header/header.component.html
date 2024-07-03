@@ -19,9 +19,9 @@
     </div>
     <div class="flex items-center">
       <button class="p-2 border rounded relative" (click)="toogleSideMenu()">
-        @if (cart.length) {
+        @if (cart().length) {
         <div class="text-sm absolute -top-3 -left-2 rounded-full bg-blue-600 text-white h-5 w-5 text-center">
-          {{cart.length}}</div>
+          {{cart().length}}</div>
 
         }
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -48,11 +48,11 @@
   </div>
   <div class="pt-6">
     <ul>
-      @for (product of cart; track product; let i = $index) {
+      @for (product of cart(); track product; let i = $index) {
       <li class="grid grid-cols-3 py-2">
-        <img class="rounded-lg" [src]="product.image" [alt]="product.title">
+        <img class="rounded-lg" [src]="product.images[0]" [alt]="product.title">
         <div class="pl-3 col-span-2">
-          <h3 class="text-xl font-bold">{{product.title}}</h3>
+          <h3 class="font-bold">{{product.title}}</h3>
           <span class="text-sm">Price: {{product.price}}</span>
         </div>
       </li>
