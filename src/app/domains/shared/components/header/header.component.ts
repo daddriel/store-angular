@@ -1,11 +1,13 @@
 import { Component, inject, Input,signal, SimpleChanges } from '@angular/core';
 import { Product } from '@shared/models/product.model';
 import { CartService } from '@shared/services/cart.service';
+import { RouterLinkWithHref, RouterLinkActive } from '@angular/router';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [],
+  imports: [RouterLinkWithHref, RouterLinkActive ,CurrencyPipe],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
